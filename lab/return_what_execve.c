@@ -6,6 +6,7 @@ int main(int argc, char **argv, char **envp)
     int b = 1;
     char *const arr[] = { "ls", "-l", NULL};
     char *const brr[] = { "free", "-g", NULL};
+    char *Hello = malloc(100);
     if ((a = execve("/bin", arr, envp)) == -1) {
         ft_printf("execve return is == %d\n", a);
         b = execve("/bin", arr, envp);
