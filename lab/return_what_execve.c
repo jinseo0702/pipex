@@ -35,3 +35,4 @@ int main(int argc, char **argv /*char **envp*/)
 /*이걸 실행해보면 알수 있는 내용은 execve함수는 실패를 하면 프로세스를 대체하지 않는다
 하지만 execve함수가 옳바르게 실행이 된다면 원래가지고 있는 프로세스의 내용들은 대체가 된다.*/
 //자식 프로세스는 부모 프로세스의 file descriptor의 복사본을 가집니다. 부모와 자식 프로세스의 file descriptor는 같은 파일을 가리킵니다.
+// /proc/pid/staus 에서 execve실행후 달라지는 메모리환경을 볼수 있습니다.
