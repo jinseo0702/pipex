@@ -14,6 +14,10 @@
 
 int main(int argc, char **argv, char **envp)
 {
-    ft_memset()
+    (void )argv;
+    (void)argc;
+    ft_re_path(envp);
+    // printf("%s\n", ft_re_path(envp));
+
     return (0);
 }

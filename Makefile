@@ -3,7 +3,8 @@ CFLAG = -Wall -Wextra -Werror -g
 AR = ar -rcs
 RM = rm -rf
 
-SRCS = src/pipex.c
+SRCS = src/pipex.c \
+	   src/is_path.c
 
 OBJS = $(SRCS:.c=.o)
 NAME = pipex

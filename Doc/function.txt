@@ -1,0 +1,6 @@
+1. int access(const char *pathname, int mode);
+int mode의 넣을수 있는 option이다.
+R_OK : 파일 존재 여부, 읽기 권한 여부
+W_OK : 파일 존재 여부, 쓰기 권한 여부
+X_OK : 파일 존재 여부, 실행 권한 여부
+F_OK : 파일 존재 여부

@@ -8,4 +8,6 @@
 #include "../libft/libft.h"                                                                             
 #include "../ft_printf/libftprintf.h"
 
+char *ft_re_path(char **envp);
+
 #endif

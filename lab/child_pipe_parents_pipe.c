@@ -17,6 +17,8 @@ int main(int argc, char **argv, char **envp)
         //child
         printf("Child pid value: %d \n", pid);
         printf("real Child pid %d \n" , getpid());
+        while(1)
+        {}
         // printf("%d %d\n", fd[0], fd[1]);
         // close(fd[0]);
         // write(fd[1], "fuck you", 5);
@@ -32,26 +34,28 @@ int main(int argc, char **argv, char **envp)
     //     read(fd[0], buff, 10);
     //     close(fd[0]);
     //     printf("%s\n", buff);
-    int a = 1;
-    int b = 1;
-    char *const arr[] = { "ls", "-l", NULL};
-    char *const brr[] = { "free", "-g", NULL};
-    char *Hello = malloc(100);
-    if ((a = execve("/bin", arr, envp)) == -1) {
-        ft_printf("execve return is == %d\n", a);
-        b = execve("/bin", arr, envp);
-        ft_printf("execve return is == %d\n", b);
-        execve("/bin/ls", arr, envp);
-        execve("/bin/free", brr, envp);
-		perror("execve");
-		return 1;
-	}
-        sleep(1);
+    // int a = 1;
+    // int b = 1;
+    // char *const arr[] = { "ls", "-l", NULL};
+    // char *const brr[] = { "free", "-g", NULL};
+    // char *Hello = malloc(100);
+    // if ((a = execve("/bin", arr, envp)) == -1) {
+    //     ft_printf("execve return is == %d\n", a);
+    //     b = execve("/bin", arr, envp);
+    //     ft_printf("execve return is == %d\n", b);
+    //     execve("/bin/ls", arr, envp);
+    //     execve("/bin/free", brr, envp);
+	// 	perror("execve");
+	// 	return 1;
+	// }
+    //     sleep(1);
     }
     else
     {
         printf("parents have child pid value: %d \n", pid);
         printf("real parents pid %d \n" , getpid());
+        while(1)
+        {}
         // printf("%d %d\n", fd[0], fd[1]);
     //     close(fd[1]);
     //     char buff[100];
