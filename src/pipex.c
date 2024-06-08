@@ -14,9 +14,17 @@
 
 int main(int argc, char **argv, char **envp)
 {
-    (void )argv;
-    (void)argc;
-    ft_re_path(envp);
+    if (argc == 5)
+    {
+        char *str = ft_re_path(envp, argv[2]);
+        printf("%s\n", str);
+        free(str);
+    }
+    else
+    {
+        perror("NOT form plz modify");
+        exit(1);
+    }
     // printf("%s\n", ft_re_path(envp));
 
     return (0);
