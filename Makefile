@@ -4,7 +4,8 @@ AR = ar -rcs
 RM = rm -rf
 
 SRCS = src/pipex.c \
-	   src/is_path.c
+	   src/is_path.c \
+	   src/process.c
 
 OBJS = $(SRCS:.c=.o)
 NAME = pipex
