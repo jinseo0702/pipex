@@ -11,17 +11,17 @@ void child_proc(int *fd, char *cmd, char *file2, char **envp)
     {
         perror("faild open file2");
         exit(1);
-    }
+    } 
     close(fd[1]);
     dup2(file2_fd, 1);
     dup2(fd[0], 0);
     close(fd[0]);
     close(file2_fd);
-    file2_fd = 0;
     cmd_child = ft_split(cmd, ' ');
-    path = ft_re_path(envp, cmd);
-    while(ft_strnstr(envp[file2_fd], "PATH", 4) == 0)
-        file2_fd++;
+    if(ft_memcmp(cmd, "", 1))
+        path = ft_re_path(envp, cmd);
+    else
+        path = ft_strdup("");
     execve(path, cmd_child, envp);
 }
 
@@ -45,10 +45,10 @@ void parents_proc(int *fd, char *cmd, char *file1, char **envp, int pid)
     dup2(fd[1], 1);
     close(fd[1]);
     close(file1_fd);
-    file1_fd = 0;
     cmd_child = ft_split(cmd, ' ');
-    path = ft_re_path(envp, cmd);
-    while(ft_strnstr(envp[file1_fd], "PATH", 4) == 0)
-        file1_fd++;
+    if(ft_memcmp(cmd, "", 1))
+        path = ft_re_path(envp, cmd);
+    else
+        path = ft_strdup("");
     execve(path, cmd_child, envp);
 }
