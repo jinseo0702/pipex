@@ -22,12 +22,16 @@ void child_proc(int *fd, char *cmd, char *file2, char **envp)
         path = ft_re_path(envp, cmd);
     else
         path = ft_strdup("");
-    execve(path, cmd_child, envp);
+    if((execve(path, cmd_child, envp)) == -1)
+    {
+        ft_free_split(cmd_child);
+        ft_is_free(path);
+    }
 }
 
 void parents_proc(int *fd, char *cmd, char *file1, char **envp, int pid)
 {
-    char **cmd_child;
+    char **cmd_parents;
     char *path;
     int file1_fd;
 
@@ -45,10 +49,14 @@ void parents_proc(int *fd, char *cmd, char *file1, char **envp, int pid)
     dup2(fd[1], 1);
     close(fd[1]);
     close(file1_fd);
-    cmd_child = ft_split(cmd, ' ');
+    cmd_parents = ft_split(cmd, ' ');
     if(ft_memcmp(cmd, "", 1))
         path = ft_re_path(envp, cmd);
     else
         path = ft_strdup("");
-    execve(path, cmd_child, envp);
+    if((execve(path, cmd_parents, envp)) == -1)
+    {
+        ft_free_split(cmd_parents);
+        ft_is_free(path);
+    }
 }
