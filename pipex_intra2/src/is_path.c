@@ -49,7 +49,6 @@ char	*ft_re_path(char **envp, char *cmd)
 	char	**split_cmd;
 	int		index;
 
-	// index = 0;
 	index = ft_is_path_index(envp);
 	split_cmd = ft_split(cmd, ' ');
 	path_split = ft_split(ft_strchr(envp[index], '/'), ':');
@@ -66,5 +65,6 @@ char	*ft_re_path(char **envp, char *cmd)
 		ft_is_free_twice(path_real, path_real2);
 	}
 	ft_free_split(path_split);
-	return (envp[index]);
+	ft_free_split(split_cmd);
+	return (ft_strdup(cmd));
 }
