@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 10:37:43 by jinseo            #+#    #+#             */
-/*   Updated: 2024/06/07 10:40:33 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/06/17 13:55:31 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_free_split(char **split)
 	int	zero;
 
 	zero = 0;
-	while(split[zero])
+	while (split[zero])
 	{
 		free(split[zero]);
 		split[zero] = NULL;

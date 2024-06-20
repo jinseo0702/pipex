@@ -6,15 +6,16 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:57:03 by jinseo            #+#    #+#             */
-/*   Updated: 2024/06/10 11:38:35 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/06/17 13:36:29 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-static t_struct *ft_init_struct(char **argv, char **envp, int *fd)
+static t_struct	*ft_init_struct(char **argv, char **envp, int *fd)
 {
-	t_struct *all;
+	t_struct	*all;
+
 	all = (t_struct *)malloc(sizeof(t_struct));
 	if (!all)
 	{
@@ -30,11 +31,17 @@ static t_struct *ft_init_struct(char **argv, char **envp, int *fd)
 	return (all);
 }
 
+static void	exit_perror(char *str)
+{
+	perror(str);
+	exit(1);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
-	int	fd[2];
-	int	pid;
-	t_struct *a;
+	int			fd[2];
+	int			pid;
+	t_struct	*a;
 
 	pipe(fd);
 	pid = 0;
@@ -43,10 +50,7 @@ int	main(int argc, char **argv, char **envp)
 	{
 		pid = fork();
 		if (pid == -1)
-		{
-			perror("faild fork try again!");
-			exit(1);
-		}
+			exit_perror("faild fork try again!");
 		if (pid == 0)
 			child_proc(a);
 		else

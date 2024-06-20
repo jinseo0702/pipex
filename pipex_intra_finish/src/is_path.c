@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:27:47 by jinseo            #+#    #+#             */
-/*   Updated: 2024/06/10 11:44:30 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/06/17 13:32:17 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ void	ft_is_free(char *str)
 	str = NULL;
 }
 
-static void ft_is_free_twice(char *path_real, char *path_real2)
+static void	ft_is_free_twice(char *path_real, char *path_real2)
 {
 	ft_is_free(path_real);
 	ft_is_free(path_real2);
 }
 
-static void free_2_1_demen(char **cmd2, char **path2, char *path1)
+static void	free_2_1_demen(char **cmd2, char **path2, char *path1)
 {
 	ft_free_split(cmd2);
 	ft_free_split(path2);
 	ft_is_free(path1);
 }
 
-static int ft_is_path_index(char **envp)
+static int	ft_is_path_index(char **envp)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	while (ft_strnstr(envp[index], "PATH", 4) == 0)
@@ -49,7 +49,6 @@ char	*ft_re_path(char **envp, char *cmd)
 	char	**split_cmd;
 	int		index;
 
-	// index = 0;
 	index = ft_is_path_index(envp);
 	split_cmd = ft_split(cmd, ' ');
 	path_split = ft_split(ft_strchr(envp[index], '/'), ':');
@@ -66,5 +65,6 @@ char	*ft_re_path(char **envp, char *cmd)
 		ft_is_free_twice(path_real, path_real2);
 	}
 	ft_free_split(path_split);
-	return (envp[index]);
+	ft_free_split(split_cmd);
+	return (ft_strdup(cmd));
 }
